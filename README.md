@@ -28,3 +28,30 @@ and handled with `??` / null checks instead of the `!` operator.
 - Running score display each round
 - `do-while` loop for "play again?"
 - Final score and overall winner at the end
+
+## Notes on Null Safety
+
+- All user input is read with `stdin.readLineSync()`, which returns
+  `String?`. Every prompt result is stored in a nullable variable instead
+  of being force-unwrapped with `!`.
+- `getPlayerName()` treats a null or blank input as "no name entered" and
+  falls back to a default label ("Player 1" / "Player 2") using `.trim()`
+  and an `isEmpty` check rather than `!`.
+- `validateMove()` returns `String?`: the normalized move if it's valid,
+  or `null` if it isn't. `getMove()` loops, re-prompting the player, until
+  `validateMove()` returns a non-null value.
+- `decideWinner()` returns `String?` as well — it returns `null` when both
+  moves are the same (a draw) instead of an empty string or a sentinel
+  value.
+- The draw message is produced with the null-coalescing operator:
+  `winner ?? "It's a draw!"` — so the program only prints "It's a draw!"
+  when `winner` is actually null.
+
+## Game Rules
+
+- Rock beats scissors, scissors beats paper, paper beats rock.
+- Same move from both players = a draw, no point awarded.
+- Winner of a round gets +1 to their score.
+- Players keep playing rounds until they answer "n" to "Play again?".
+- Whoever has the higher score when the game ends is the overall winner;
+  equal scores result in a tie.
