@@ -18,17 +18,6 @@ and handled with `??` / null checks instead of the `!` operator.
    dart rock_paper_scissors.dart
    ```
 
-## Features
-- Title banner, player name prompts (with default names if left blank)
-- Move validation (`rock`, `paper`, `scissors`), case-insensitive and
-  whitespace-trimmed, re-prompts until valid
-- Screen-clearing (30 blank lines) between Player 1's and Player 2's moves
-- Winner logic via `switch` statement, draw handling with a nullable
-  `winner` variable and `??`
-- Running score display each round
-- `do-while` loop for "play again?"
-- Final score and overall winner at the end
-
 ## Notes on Null Safety
 
 - All user input is read with `stdin.readLineSync()`, which returns
@@ -55,3 +44,15 @@ and handled with `??` / null checks instead of the `!` operator.
 - Players keep playing rounds until they answer "n" to "Play again?".
 - Whoever has the higher score when the game ends is the overall winner;
   equal scores result in a tie.
+
+## Features
+- Title banner, player name prompts (with default names if left blank)
+- Move validation (`rock`, `paper`, `scissors`), case-insensitive and
+  whitespace-trimmed, re-prompts until valid
+- Screen-clearing (30 blank lines) between Player 1's and Player 2's moves
+- Winner logic via `switch` statement, draw handling with a nullable
+  `winner` variable and `??`
+- Running score display each round
+- `do-while` loop for "play again?"
+- Final score and overall winner at the end
+
